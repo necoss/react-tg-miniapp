@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+@layer base;
+@import 'tailwindcss';
+@import 'tailwindcss/preflight.css' layer(base);
+
+@theme {
+	--font-bebas: 'Bebas Neue', sans-serif;
+	--font-roboto: 'Roboto', sans-serif;
+}
+
+.custom-input-range-thumb::-webkit-slider-thumb {
+	appearance: none;
+	background: #000;
+	width: 165px;
+	height: 50px;
+}
