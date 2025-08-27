@@ -16,6 +16,10 @@ const Store = () => {
 		navigateTo('/')
 	}
 
+	const handleRedirectLogin = () => {
+		navigateTo('/store/login')
+	}
+
 	return (
 		<section className="px-4 pt-30 pb-15">
 			{/* Top Bar with user profile */}
@@ -46,7 +50,10 @@ const Store = () => {
 						</span>
 					</p>
 
-					<button className="mt-4 rounded-full bg-white px-3 py-2 font-medium">
+					<button
+						className="mt-4 rounded-full bg-white px-3 py-2 font-medium"
+						onClick={handleRedirectLogin}
+					>
 						CHANGE THE GAME
 					</button>
 				</article>
