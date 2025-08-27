@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { sizesData } from '../data'
 
 type SizesFilter = {
 	name: string
@@ -6,13 +7,7 @@ type SizesFilter = {
 }
 
 export const SizesFilter = () => {
-	const [sizes, setSizes] = useState<SizesFilter[]>([
-		{ name: 'XS', isActive: false },
-		{ name: 'S', isActive: false },
-		{ name: 'M', isActive: true },
-		{ name: 'L', isActive: false },
-		{ name: 'XL', isActive: false },
-	])
+	const [sizes, setSizes] = useState<SizesFilter[]>(sizesData)
 
 	const handleClick = (clickedFilter: string) => {
 		setSizes((prevFilters) =>

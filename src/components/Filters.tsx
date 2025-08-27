@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { filtersData } from '../data'
 
 type Filters = {
 	name: string
@@ -6,12 +7,7 @@ type Filters = {
 }
 
 export const Filters = () => {
-	const [filters, setFilters] = useState<Filters[]>([
-		{ name: 'All', isActive: true },
-		{ name: 'Exclusive', isActive: false },
-		{ name: 'Popular', isActive: false },
-		{ name: 'Archive', isActive: false },
-	])
+	const [filters, setFilters] = useState<Filters[]>(filtersData)
 
 	const handleClick = (clickedFilter: string) => {
 		setFilters((prevFilters) =>

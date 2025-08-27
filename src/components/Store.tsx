@@ -66,9 +66,7 @@ const Store = () => {
 			</div>
 
 			{/* Filters */}
-			<div>
-				<Filters />
-			</div>
+			<Filters />
 
 			{/* Cards with T-Shirts */}
 			<div className="mt-5">
@@ -81,9 +79,7 @@ const Store = () => {
 					</button>
 				</article>
 
-				<div className="">
-					<StoreItems />
-				</div>
+				<StoreItems />
 			</div>
 		</section>
 	)

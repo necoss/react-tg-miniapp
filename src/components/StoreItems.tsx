@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom'
 import { GoHeart } from 'react-icons/go'
 import { GoHeartFill } from 'react-icons/go'
 import { StoreOpenedCard } from './StoreOpenedCard'
+import { cardsData } from '../data'
 
 export type CardInfo = {
 	image: string
@@ -15,32 +16,7 @@ export const StoreItems = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 	const [selectedCard, setSelectedCard] = useState<CardInfo | null>(null)
 
-	const [cards, setCards] = useState<CardInfo[]>([
-		{
-			name: 'T "WALK BY FAITH"',
-			image: '/cloth/shirts/walk-by-faith-concept.png',
-			price: '$39,99',
-			isFavourite: false,
-		},
-		{
-			name: 'T "SALVATION"',
-			image: '/cloth/shirts/salvation-concept.png',
-			price: '$37,99',
-			isFavourite: false,
-		},
-		{
-			name: 'T "EMBRACE LORD"',
-			image: '/cloth/shirts/embrace-lord-concept.png',
-			price: '$43,99',
-			isFavourite: false,
-		},
-		{
-			name: 'T "REPRESENT"',
-			image: '/cloth/shirts/represent-concept.png',
-			price: '$39,99',
-			isFavourite: false,
-		},
-	])
+	const [cards, setCards] = useState<CardInfo[]>(cardsData)
 
 	const handleAddFavourite = (clickedCard: string, event: React.MouseEvent) => {
 		event.stopPropagation()

@@ -3,27 +3,29 @@ import { ShowcaseCarousel } from './ShowcaseCarousel'
 import { IoIosArrowForward } from 'react-icons/io'
 import { useNavigate } from 'react-router-dom'
 
-export const WelcomeShowcase = () => {
-	const [sliderValue, setSliderValue] = useState(24)
+const sliderStartPoint = 24
+const sliderEndPoint = 76
 
-	const sliderStartPoint = 24
-	const sliderEndPoint = 76
+export const WelcomeShowcase = () => {
+	const [sliderValue, setSliderValue] = useState(sliderStartPoint)
 
 	const navigateTo = useNavigate()
 
-	const handleRedirect = () => {
+	const handleRedirectToStore = () => {
 		navigateTo('/store')
 	}
 
-	const handleChangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleUpdateSliderPosition = (
+		event: React.ChangeEvent<HTMLInputElement>,
+	) => {
 		const updatedInputValue = Number(event.target.value)
 		setSliderValue(updatedInputValue)
 	}
 
-	const handleRelease = () => {
+	const handleReleaseSlider = () => {
 		if (sliderValue === sliderEndPoint) {
 			console.log('REDIRECTED NIGGA')
-			handleRedirect()
+			handleRedirectToStore()
 		} else {
 			setSliderValue(sliderStartPoint)
 		}
@@ -37,9 +39,7 @@ export const WelcomeShowcase = () => {
 				</p>
 			</div>
 
-			<div>
-				<ShowcaseCarousel />
-			</div>
+			<ShowcaseCarousel />
 
 			<div className="absolute bottom-0 min-h-90 w-full rounded-tl-[60px] rounded-tr-[60px] bg-[#111A1B] px-4 pt-12 text-center">
 				<h1 className="font-bebas text-[50px] leading-[1] font-black tracking-wide text-white">
@@ -55,9 +55,9 @@ export const WelcomeShowcase = () => {
 					<input
 						type="range"
 						value={sliderValue}
-						onChange={handleChangeValue}
-						onMouseUp={handleRelease}
-						onTouchEnd={handleRelease}
+						onChange={handleUpdateSliderPosition}
+						onMouseUp={handleReleaseSlider}
+						onTouchEnd={handleReleaseSlider}
 						min={sliderStartPoint}
 						max={sliderEndPoint}
 						className="opacity-full custom-input-range-thumb absolute top-0 left-0 z-2 h-full w-full cursor-pointer appearance-none opacity-0"
